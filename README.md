@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Crypto Portfolio Tracker 💸🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A sleek, modern web application that allows you to effortlessly track your cryptocurrency assets in real-time. Built with React, it dynamically calculates your total portfolio value and features a premium Glassmorphism UI.
 
-## Available Scripts
+![Crypto Tracker UI Prototype Overview](https://img.shields.io/badge/UI-Glassmorphism-8b5cf6?style=flat-square)
+![React Version](https://img.shields.io/badge/React-18.2-61dafb?style=flat-square)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Real-Time Pricing:** Uses Axios to fetch live cryptocurrency data from external APIs (e.g., CoinGecko) to keep your portfolio valuations accurate.
+- **Auto-Refreshing:** Automatically polls the API every 60 seconds to ensure your dashboard is always reflecting current market prices without needing manual page refreshes.
+- **Premium Aesthetics:** 
+  - **Glassmorphism Design:** Beautiful frosted glass containers overlaying deep cosmic animated mesh gradients.
+  - **Dark / Light Mode:** A sleek toggle button switches the entire app theme flawlessly, persisting your preference automatically.
+  - **Micro-Animations:** Interactive token rows that react smoothly on hover to create an engaging experience.
+- **Modern Typography:** Styled with Google Fonts (`Outfit` for bold metrics, `Inter` for clean data).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technology Stack
 
-### `npm test`
+- **Frontend Environment:** React.js (Create React App)
+- **Styling:** Custom Vanilla CSS (No dependencies, fully customized Flex-Grid layout)
+- **Data Fetching:** Axios
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Getting Started
 
-### `npm run build`
+### Prerequisites
+Make sure you have Node.js and npm installed on your machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Runavphate/Crypto-Portfolio-Tracker.git
+   cd Crypto-Portfolio-Tracker
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+   *(Note: Overwrite legacy peer dependencies if prompted by your package manager in `npm v7+`)*
 
-### `npm run eject`
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
+   
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Navigate to [http://localhost:3000](http://localhost:3000) to view the tracker.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎨 Modifying Your Portfolio
+To customize the tokens tracked in the app, simply modify the `tokens` array located in `src/App.js`. Update the `id` (must match the API endpoint), `symbol`, `amount`, and `color` properties!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```javascript
+{ id: "bitcoin", name: "Bitcoin", symbol: "BTC", amount: 0.5, color: "#f7931a" }
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📜 License
+Built for personal portfolio tracking. Free to use and distribute.
