@@ -1,106 +1,123 @@
-/* Light mode */
-.portfolio-table-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: #f9fafb;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-family: 'Inter', sans-serif;
-}
-
-.portfolio-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #1f2937;
-  text-align: center;
-}
-
-.portfolio-table {
+/* Glassmorphism Table Container */
+.portfolio-glass-container {
   width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
-.portfolio-table thead {
-  background-color: #e5e7eb;
-  color: #374151;
+body.light-mode .portfolio-glass-container {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
 }
 
-.portfolio-table th,
-.portfolio-table td {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.portfolio-table tbody tr:hover {
-  background-color: #f3f4f6;
-  transition: background-color 0.2s ease;
-}
-
-.portfolio-table td {
-  color: #111827;
-}
-
-.empty-row {
-  text-align: center;
-  padding: 1rem;
-  color: #6b7280;
-}
-
-/* Dark mode */
-.app-wrapper {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  font-family: 'Inter', sans-serif;
-}
-
-.app-title {
-  font-size: 2rem;
+/* Header */
+.table-header {
+  display: flex;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Outfit', sans-serif;
   font-weight: 600;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #1f2937;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.toggle-button {
-  margin-bottom: 1.5rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #2563eb;
+body.light-mode .table-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: #64748b;
+}
+
+/* Columns */
+.col-asset { flex: 2; display: flex; align-items: center; gap: 1rem; }
+.col-portfolio { flex: 1.5; display: flex; align-items: center; gap: 0.3rem; }
+.col-price { flex: 1.5; display: flex; align-items: center; justify-content: flex-end; }
+.col-total { flex: 1.5; display: flex; align-items: center; justify-content: flex-end; }
+
+/* Rows */
+.table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.token-row {
+  display: flex;
+  padding: 1.2rem 1.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+}
+
+body.light-mode .token-row {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.token-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px) scale(1.005);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .token-row:hover {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+/* Token Icon */
+.token-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
   color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.toggle-button:hover {
-  background-color: #1d4ed8;
+/* Token Info */
+.token-info { display: flex; flex-direction: column; }
+.token-name { font-weight: 600; font-size: 1.05rem; letter-spacing: -0.2px; }
+.token-symbol { font-size: 0.8rem; color: #94a3b8; font-weight: 500; margin-top: 0.1rem; }
+body.light-mode .token-symbol { color: #64748b; }
+
+.token-amount { font-weight: 600; font-family: 'Outfit', sans-serif; font-size: 1.1rem; }
+.token-symbol-sm { font-size: 0.8rem; color: #94a3b8; margin-top: 0.15rem; }
+body.light-mode .token-symbol-sm { color: #64748b; }
+
+.price-value { font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 1.05rem; }
+
+.total-value {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 
-.dark-mode .app-wrapper {
-  background-color: #0f172a;
-  color: #f1f5f9;
+/* Responsive */
+@media (max-width: 768px) {
+  .col-price { display: none; }
+  .table-header .col-price { display: none; }
+  .table-header, .token-row { padding: 1rem; }
+  .portfolio-glass-container { padding: 0.5rem; }
 }
 
-.dark-mode .app-title {
-  color: #f1f5f9;
-}
-
-.dark-mode .toggle-button {
-  background-color: #334155;
-  color: #f1f5f9;
-}
-
-.dark-mode .toggle-button:hover {
-  background-color: #475569;
+@media (max-width: 480px) {
+  .col-portfolio { display: none; }
+  .table-header .col-portfolio { display: none; }
 }

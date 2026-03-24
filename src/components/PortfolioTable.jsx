@@ -1,46 +1,65 @@
 import React from "react";
-import "./PortfolioTable.css"; // Import the custom CSS
+import "./PortfolioTable.css";
 
-const PortfolioTable = ({ tokens, prices }) => {
+const PortfolioTable = ({ tokens, prices, darkMode }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
   return (
-    <div className="portfolio-table-container">
-      <h2 className="portfolio-title">Your Token Portfolio</h2>
-      <table className="portfolio-table">
-        <thead>
-          <tr>
-            <th>Token</th>
-            <th>Amount</th>
-            <th>Price (USD)</th>
-            <th>Total Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tokens.length === 0 ? (
-            <tr>
-              <td colSpan="4" className="empty-row">No tokens in portfolio</td>
-            </tr>
-          ) : (
-            tokens.map((token) => {
-              const price = prices[token.id]?.usd || 0;
-              const value = price * token.amount;
+    <div className="portfolio-glass-container">
+      <div className="table-header">
+        <div className="col-asset">Asset</div>
+        <div className="col-portfolio">Portfolio</div>
+        <div className="col-price">Price</div>
+        <div className="col-total">Total Value</div>
+      </div>
+      
+      <div className="table-body">
+        {tokens.length === 0 ? (
+          <div className="empty-state">No assets found</div>
+        ) : (
+          tokens.map((token) => {
+            const price = prices[token.id]?.usd || 0;
+            const value = price * token.amount;
 
-              return (
-                <tr key={token.id}>
-                  <td>{token.name}</td>
-                  <td>{token.amount}</td>
-                  <td>{formatter.format(price)}</td>
-                  <td>{formatter.format(value)}</td>
-                </tr>
-              );
-            })
-          )}
-        </tbody>
-      </table>
+            return (
+              <div className="token-row" key={token.id}>
+                {/* Asset Column */}
+                <div className="col-asset">
+                  <div 
+                    className="token-icon" 
+                    style={{ background: token.color, boxShadow: `0 0 15px ${token.color}66` }}
+                  >
+                    {token.symbol[0]}
+                  </div>
+                  <div className="token-info">
+                    <span className="token-name">{token.name}</span>
+                    <span className="token-symbol">{token.symbol}</span>
+                  </div>
+                </div>
+
+                {/* Portfolio Amount Column */}
+                <div className="col-portfolio">
+                  <span className="token-amount">{token.amount}</span>
+                  <span className="token-symbol-sm">{token.symbol}</span>
+                </div>
+
+                {/* Price Column */}
+                <div className="col-price">
+                  <span className="price-value">{formatter.format(price)}</span>
+                </div>
+
+                {/* Total Value Column */}
+                <div className="col-total">
+                  <span className="total-value">{formatter.format(value)}</span>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 };
